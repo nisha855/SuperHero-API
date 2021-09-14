@@ -14,21 +14,24 @@ function searchCharacter(result) {
 
             Object.keys(data.results).map(function (key) {
                 getresult += `<div class="character">
+                             <div class="icon">
+                              <i onClick="myFavourites(this)" id="${data.results[key].id}" class="far fa-heart fa-2x" ></i>
+                             </div>
                              <img src="${data.results[key].image.url}"></img>
                             <h2>${data.results[key].name}</h2>
                             <p>Full Name:${data.results[key].biography["full-name"]}</p>
                             <p>Gender:${data.results[key].appearance.gender}</p>
-                            <p>Occupation:
+                            <p>Race:
                                 ${(() => {
-                        if (data.results[key].work["occupation"] != '-') {
-                            return `${data.results[key].work["occupation"]}`;
+                    if (data.results[key].appearance.race != 'null') {
+                        return `${data.results[key].appearance.race}`;
                         }
                         else {
                             return "Not Known";
                         }
                     })()
                     }</p>
-                            <button>Know More</button>
+                            <button id="${data.results[key].id}" onClick="myFunction(this)">Know More</button>
                             </div>
                             `;
             });
@@ -45,7 +48,7 @@ function searchCharacter(result) {
 
             document.getElementById("error").innerHTML = "";
             document.getElementById('characterList').innerHTML = getresult;
-            //document.getElementById("image").src = imgurl;
+
 
         })
 
@@ -71,3 +74,27 @@ window.onload = () => {
         }, 550);
     };
 }
+
+
+function myFunction(event) {
+    document.addEventListener('click', (event) => {
+        const id = event.target.id;
+        window.sessionStorage.setItem('id', id);
+        location.href = "./herodetails.html";
+    })
+};
+
+function myFavourites(event) {
+    event.classList.toggle("fas");
+        const id = event.target.id;
+        let vals = localStorage.getItem('list');
+        vals = vals ? JSON.parse(vals) : [];
+        const a = vals.includes(id);
+        if (!a)
+            vals.push(id);
+        localStorage.setItem('list', JSON.stringify(vals));
+        console.log(list);
+
+}
+
+

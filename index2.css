@@ -6,13 +6,23 @@
 
         body {
             font-family: sans-serif;
-            background-color: #111d4a;
+            background-color:lightgrey;
             margin: 2rem;
             display: flex;
             text-align: center;
 
         }
+ .container {
+            padding: 40px;
+            margin: 0 auto;
+            text-align: center;
+        }
 
+
+        .container h2{
+            color:rgb(21, 21, 143);
+            font-weight: bold;
+        }
         .header {
             display: static;
         }
@@ -25,58 +35,24 @@
 
         .header ul li a {
             text-decoration: none;
-            color: white;
+            color: black;
+
             font-weight: bold;
             font-size: large;
-
+            
+        }
+        .header ul li a:hover{
+            color:tomato
         }
 
 
-        .container {
-            padding: 40px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        h1 {
-            color: white;
-            margin-bottom: 30px;
-        }
-
-        #search {
-            width: 300px;
-            height: 32px;
-            border-radius: 3px;
-            border: 1px solid #eaeaea;
-            padding: 5px 10px;
-            font-size: 15px;
-        }
-
-        #searchBar {
-            position: relative;
-            width: 100%;
-            margin-left: 25px;
-            margin-bottom: 0%;
-        }
-
-        #searchBar::after {
-            content: url('images/cartoon-1295191_640.png');
-            position: relative;
-            top: 7px;
-            right: 40px;
-
-        }
-
-        #characterList {
-            margin: 40px;
-        }
-
-        .character {
+         .character {
             overflow: hidden;
-            box-shadow: 0px 2px 20px #bec4c7;
+            box-shadow: 0px 2px 20px #a7b7be;
             border-radius: 0.2rem;
             display: inline-block;
             justify-content: space-between;
+            margin-top: 50px;
             margin-bottom: 50px;
             margin-right: 50px;
             width: 300px;
@@ -85,34 +61,7 @@
             height: 450px;
             position: relative;
         }
-
-        .icon{
-            
-            padding-left:230px;
-
-        }
         
-         .far{
-           position: absolute;
-            z-index: 2;
-            cursor: pointer;
-            background-color:transparent;
-            border: transparent;
-           color: red;
-            cursor: pointer;
-         }
-
-         .fas{
-             position: absolute;
-            z-index: 2;
-            cursor: pointer;
-           color: red;
-
-         }
-
-
-
-
 
         .character>img {
              
@@ -122,6 +71,7 @@
         }
 
         .character>h2 {
+            color: black;
             padding: 1rem;
             padding-bottom: 0.5rem;
         }
@@ -157,4 +107,3 @@
         .character>button a:hover{
             color: white;
          }
-    
